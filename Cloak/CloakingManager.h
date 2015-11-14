@@ -11,7 +11,7 @@
 
 @interface CloakingManager : NSObject
 
-+ (instancetype)sharedManager;
++ (nonnull instancetype)sharedManager;
 
 - (void)cloakText:(NSString *)text inImage:(UIImage *)image completion:(nullable void (^)(UIImage *cloakedImage))completion;
 

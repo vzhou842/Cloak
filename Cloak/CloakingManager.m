@@ -33,10 +33,49 @@
     NSString *binary = [self binaryStringForASCII:ascii];
     NSLog(@"binary: %@", binary);
     
+    // Convert UIImage to raw data
+    CGImageRef imageRef = [image CGImage];
+    NSUInteger width = CGImageGetWidth(imageRef);
+    NSUInteger height = CGImageGetHeight(imageRef);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    unsigned char *rawData = (unsigned char *) calloc(height * width * 4, sizeof(unsigned char));
+    NSUInteger bytesPerPixel = 4;
+    NSUInteger bytesPerRow = bytesPerPixel * width;
+    NSUInteger bitsPerComponent = 8;
+    CGContextRef context = CGBitmapContextCreate(rawData, width, height,
+                                                 bitsPerComponent, bytesPerRow, colorSpace,
+                                                 kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    CGColorSpaceRelease(colorSpace);
     
+    CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);
+    
+    // Cloak binary into pixels
+    for (int i = 0; i < MIN(width*height, binary.length); i++)
+    {
+        rawData[i] = [self cloakedByteFromByte:rawData[i] withDigit:([binary characterAtIndex:i] == '1')];
+    }
+    
+    //make it back into a UIImage
+    UIImage *newImage = [[UIImage alloc] initWithCGImage:CGBitmapContextCreateImage(context)];
+    
+    CGContextRelease(context);
+    free(rawData);
+    
+    if (completion) {
+        completion(newImage);
+    }
 }
 
 #pragma mark - Helper
+
+- (unsigned char)cloakedByteFromByte:(unsigned char)original withDigit:(bool)d {
+    if (original % 2 == 0 && d) {
+        original++;
+    } else if (original % 2 == 1 && !d) {
+        original--;
+    }
+    return original;
+}
 
 - (NSString *)binaryStringForASCII:(NSString *)ascii {
     NSMutableString *returnString = [@"" mutableCopy];
