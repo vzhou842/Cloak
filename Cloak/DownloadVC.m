@@ -19,6 +19,19 @@
     
     self.imageView.image = self.downloadImage;
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
+    singleTap.numberOfTapsRequired = 1;
+    [self.imageView setUserInteractionEnabled:YES];
+    [self.imageView addGestureRecognizer:singleTap];
+    
+    
+    
+}
+
+-(void)tapDetected{
+    NSLog(@"single Tap on imageview");
+    UIImageWriteToSavedPhotosAlbum(self.downloadImage, nil, nil, nil);
+    
 }
 
 @end
