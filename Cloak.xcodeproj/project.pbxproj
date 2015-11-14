@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2CA346801BF7ED2500BC590E /* DownloadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA3467F1BF7ED2500BC590E /* DownloadVC.m */; };
+		2CA346841BF7F0DF00BC590E /* DownloadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA346831BF7F0DF00BC590E /* DownloadVC.m */; };
 		A5545DA71BF7CD8D005382CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5545DA61BF7CD8D005382CB /* main.m */; };
 		A5545DAA1BF7CD8D005382CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5545DA91BF7CD8D005382CB /* AppDelegate.m */; };
 		A5545DAD1BF7CD8D005382CB /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A5545DAC1BF7CD8D005382CB /* MainVC.m */; };
@@ -18,8 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2CA3467F1BF7ED2500BC590E /* DownloadVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVC.m; sourceTree = "<group>"; };
-		2CA346811BF7ED4E00BC590E /* DownloadVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVC.h; sourceTree = "<group>"; };
+		2CA346821BF7F0DF00BC590E /* DownloadVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVC.h; sourceTree = "<group>"; };
+		2CA346831BF7F0DF00BC590E /* DownloadVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVC.m; sourceTree = "<group>"; };
 		A5545DA21BF7CD8D005382CB /* Cloak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5545DA61BF7CD8D005382CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5545DA81BF7CD8D005382CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,8 +68,6 @@
 				A5545DA91BF7CD8D005382CB /* AppDelegate.m */,
 				A5545DAB1BF7CD8D005382CB /* MainVC.h */,
 				A5545DAC1BF7CD8D005382CB /* MainVC.m */,
-				2CA346811BF7ED4E00BC590E /* DownloadVC.h */,
-				2CA3467F1BF7ED2500BC590E /* DownloadVC.m */,
 				A5545DBC1BF7D5A6005382CB /* CloakingManager.h */,
 				A5545DBD1BF7D5A6005382CB /* CloakingManager.m */,
 				A5545DAE1BF7CD8D005382CB /* Main.storyboard */,
@@ -77,6 +75,8 @@
 				A5545DB31BF7CD8D005382CB /* LaunchScreen.storyboard */,
 				A5545DB61BF7CD8D005382CB /* Info.plist */,
 				A5545DA51BF7CD8D005382CB /* Supporting Files */,
+				2CA346821BF7F0DF00BC590E /* DownloadVC.h */,
+				2CA346831BF7F0DF00BC590E /* DownloadVC.m */,
 			);
 			path = Cloak;
 			sourceTree = "<group>";
@@ -160,7 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5545DAD1BF7CD8D005382CB /* MainVC.m in Sources */,
-				2CA346801BF7ED2500BC590E /* DownloadVC.m in Sources */,
+				2CA346841BF7F0DF00BC590E /* DownloadVC.m in Sources */,
 				A5545DAA1BF7CD8D005382CB /* AppDelegate.m in Sources */,
 				A5545DA71BF7CD8D005382CB /* main.m in Sources */,
 				A5545DBE1BF7D5A6005382CB /* CloakingManager.m in Sources */,

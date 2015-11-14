@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (DownloadVC)
+@interface DownloadVC : UIViewController
 
 @end

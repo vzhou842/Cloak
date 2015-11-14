@@ -8,6 +8,11 @@
 
 #import "DownloadVC.h"
 
-@implementation UIViewController (DownloadVC)
+@implementation DownloadVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+}
 
 @end
