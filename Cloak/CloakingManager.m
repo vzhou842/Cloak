@@ -33,6 +33,9 @@
     NSString *binary = [self binaryStringForASCII:ascii];
     NSLog(@"binary: %@", binary);
     
+    // store length of binary at beginning
+    binary = [NSString stringWithFormat:@"%@%@", [self binaryStringForNSUInteger:binary.length], binary];
+    
     // Convert UIImage to raw data
     CGImageRef imageRef = [image CGImage];
     NSUInteger width = CGImageGetWidth(imageRef);
@@ -82,12 +85,22 @@
     for (int i = 0; i < [ascii length]; i++) {
         unsigned char character = [ascii characterAtIndex:i];
         // for each bit in a byte extract the bit
-        for (int j=0; j < 8; j++) {
+        for (int j = 0; j < 8; j++) {
             int bit = (character >> j) & 1;
             [returnString appendString:[NSString stringWithFormat:@"%d", bit]];
         }           
     }
-    return returnString;
+    return [returnString copy];
+}
+
+- (NSString *)binaryStringForNSUInteger:(NSUInteger)integer {
+    NSMutableString *str = [NSMutableString string];
+    for(NSInteger i = 0; i < 8 ; i++) {
+        // Prepend "0" or "1", depending on the bit
+        [str insertString:((integer & 1) ? @"1" : @"0") atIndex:0];
+        integer >>= 1;
+    }
+    return [str copy];
 }
 
 @end
