@@ -98,14 +98,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SWL-Q5-QSt">
-                                <rect key="frame" x="20" y="20" width="560" height="250"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SWL-Q5-QSt">
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
                                 <animations/>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="SWL-Q5-QSt" secondAttribute="trailing" id="Bng-iV-z8c"/>
+                            <constraint firstItem="pMB-e0-r3K" firstAttribute="top" secondItem="SWL-Q5-QSt" secondAttribute="bottom" constant="20" id="Uvt-SK-slS"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="SWL-Q5-QSt" secondAttribute="leading" id="mQL-Os-tZ1"/>
+                            <constraint firstItem="SWL-Q5-QSt" firstAttribute="top" secondItem="0Nj-Ru-EBx" secondAttribute="bottom" id="oGS-uc-bRk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="SWL-Q5-QSt" id="iJB-gk-hCI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTk-dn-zb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

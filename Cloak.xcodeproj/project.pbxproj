@@ -70,13 +70,13 @@
 				A5545DAC1BF7CD8D005382CB /* MainVC.m */,
 				A5545DBC1BF7D5A6005382CB /* CloakingManager.h */,
 				A5545DBD1BF7D5A6005382CB /* CloakingManager.m */,
+				2CA346821BF7F0DF00BC590E /* DownloadVC.h */,
+				2CA346831BF7F0DF00BC590E /* DownloadVC.m */,
 				A5545DAE1BF7CD8D005382CB /* Main.storyboard */,
 				A5545DB11BF7CD8D005382CB /* Assets.xcassets */,
 				A5545DB31BF7CD8D005382CB /* LaunchScreen.storyboard */,
 				A5545DB61BF7CD8D005382CB /* Info.plist */,
 				A5545DA51BF7CD8D005382CB /* Supporting Files */,
-				2CA346821BF7F0DF00BC590E /* DownloadVC.h */,
-				2CA346831BF7F0DF00BC590E /* DownloadVC.m */,
 			);
 			path = Cloak;
 			sourceTree = "<group>";

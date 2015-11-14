@@ -8,6 +8,7 @@
 
 #import "MainVC.h"
 #import "CloakingManager.h"
+#import "DownloadVC.h"
 
 @interface MainVC () <UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -20,6 +21,7 @@
 - (IBAction)cloak:(id)sender;
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
+@property (nonatomic, strong) UIImage *cloakedImage;
 
 @end
 
@@ -81,13 +83,20 @@
     }
     
     [[CloakingManager sharedManager] cloakText:self.textView.text inImage:self.imageView.image completion:^(UIImage *cloakedImage) {
-        //TODO: handle cloaked image
+        self.cloakedImage = cloakedImage;
         [self performSegueWithIdentifier:@"showDownload" sender:self];
     }];
 }
 
 -(void)dismissKeyboard {
     [self.textView resignFirstResponder];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showDownload"]) {
+        DownloadVC *vc = (DownloadVC *)[segue destinationViewController];
+        vc.downloadImage = self.cloakedImage;
+    }
 }
 
 @end

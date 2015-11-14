@@ -10,4 +10,6 @@
 
 @interface DownloadVC : UIViewController
 
+@property (nonatomic, strong) UIImage *downloadImage;
+
 @end
