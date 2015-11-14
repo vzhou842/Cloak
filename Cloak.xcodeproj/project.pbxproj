@@ -13,6 +13,7 @@
 		A5545DB01BF7CD8D005382CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5545DAE1BF7CD8D005382CB /* Main.storyboard */; };
 		A5545DB21BF7CD8D005382CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5545DB11BF7CD8D005382CB /* Assets.xcassets */; };
 		A5545DB51BF7CD8D005382CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5545DB31BF7CD8D005382CB /* LaunchScreen.storyboard */; };
+		A5545DBE1BF7D5A6005382CB /* CloakingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5545DBD1BF7D5A6005382CB /* CloakingManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		A5545DB11BF7CD8D005382CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5545DB41BF7CD8D005382CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5545DB61BF7CD8D005382CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5545DBC1BF7D5A6005382CB /* CloakingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloakingManager.h; sourceTree = "<group>"; };
+		A5545DBD1BF7D5A6005382CB /* CloakingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloakingManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				A5545DA91BF7CD8D005382CB /* AppDelegate.m */,
 				A5545DAB1BF7CD8D005382CB /* MainVC.h */,
 				A5545DAC1BF7CD8D005382CB /* MainVC.m */,
+				A5545DBC1BF7D5A6005382CB /* CloakingManager.h */,
+				A5545DBD1BF7D5A6005382CB /* CloakingManager.m */,
 				A5545DAE1BF7CD8D005382CB /* Main.storyboard */,
 				A5545DB11BF7CD8D005382CB /* Assets.xcassets */,
 				A5545DB31BF7CD8D005382CB /* LaunchScreen.storyboard */,
@@ -152,6 +157,7 @@
 				A5545DAD1BF7CD8D005382CB /* MainVC.m in Sources */,
 				A5545DAA1BF7CD8D005382CB /* AppDelegate.m in Sources */,
 				A5545DA71BF7CD8D005382CB /* main.m in Sources */,
+				A5545DBE1BF7D5A6005382CB /* CloakingManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "MainVC.h"
+#import "CloakingManager.h"
 
 @interface MainVC () <UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -58,12 +59,23 @@
 }
 
 - (IBAction)cloak:(id)sender {
+    //ensure they've entered text
+    if (self.textView.text.length == 0) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please enter text first." preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    }
+    
     //ensure they've selected an image
     if (!self.imageView.image) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please select an image first." preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
         [self presentViewController:alert animated:YES completion:nil];
+        return;
     }
+    
+    [[CloakingManager sharedManager] cloakText:self.textView.text inImage:self.imageView.image completion:nil];
 }
 
 @end
