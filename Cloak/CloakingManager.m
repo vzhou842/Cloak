@@ -27,7 +27,28 @@
 }
 
 - (void)cloakText:(NSString *)text inImage:(UIImage *)image completion:(nullable void (^)(UIImage *cloakedImage))completion {
+    NSData *data = [text dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:NO];
+    NSString *ascii = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    NSLog(@"ascii: %@", ascii);
+    NSString *binary = [self binaryStringForASCII:ascii];
+    NSLog(@"binary: %@", binary);
     
+    
+}
+
+#pragma mark - Helper
+
+- (NSString *)binaryStringForASCII:(NSString *)ascii {
+    NSMutableString *returnString = [@"" mutableCopy];
+    for (int i = 0; i < [ascii length]; i++) {
+        unsigned char character = [ascii characterAtIndex:i];
+        // for each bit in a byte extract the bit
+        for (int j=0; j < 8; j++) {
+            int bit = (character >> j) & 1;
+            [returnString appendString:[NSString stringWithFormat:@"%d", bit]];
+        }           
+    }
+    return returnString;
 }
 
 @end
