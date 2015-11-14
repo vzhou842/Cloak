@@ -29,6 +29,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 #pragma mark - Accessors
@@ -76,6 +81,10 @@
     }
     
     [[CloakingManager sharedManager] cloakText:self.textView.text inImage:self.imageView.image completion:nil];
+}
+
+-(void)dismissKeyboard {
+    [self.textView resignFirstResponder];
 }
 
 @end

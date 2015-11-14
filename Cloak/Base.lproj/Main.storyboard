@@ -44,18 +44,19 @@
                                     <action selector="upload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zOf-Wn-u3h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rS-2f-GYo">
-                                <rect key="frame" x="280.5" y="550" width="39" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Cloak"/>
-                                <connections>
-                                    <action selector="cloak:" destination="BYZ-38-t0r" eventType="touchUpInside" id="awO-hW-fT6"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0dt-mA-ruE">
                                 <rect key="frame" x="20" y="323" width="560" height="217"/>
                                 <animations/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rS-2f-GYo">
+                                <rect key="frame" x="281" y="550" width="39" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Cloak"/>
+                                <connections>
+                                    <action selector="cloak:" destination="BYZ-38-t0r" eventType="touchUpInside" id="awO-hW-fT6"/>
+                                    <segue destination="OMc-fp-Vc3" kind="show" id="rXW-mU-gHV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,6 +85,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="325" y="387"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0eA-di-Vx4">
+            <objects>
+                <viewController id="OMc-fp-Vc3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Nj-Ru-EBx"/>
+                        <viewControllerLayoutGuide type="bottom" id="pMB-e0-r3K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aYS-ID-9ic">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gTk-dn-zb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="979" y="387"/>
         </scene>
     </scenes>
 </document>
