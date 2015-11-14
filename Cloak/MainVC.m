@@ -12,13 +12,13 @@
 
 // Interface Builder
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *uploadButton;
 @property (weak, nonatomic) IBOutlet UIButton *cloakButton;
 - (IBAction)upload:(id)sender;
 - (IBAction)cloak:(id)sender;
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
-@property (nonatomic, strong) UIImage *selectedImage;
 
 @end
 
@@ -27,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 #pragma mark - Accessors
@@ -46,7 +47,7 @@
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    self.selectedImage = info[UIImagePickerControllerEditedImage];
+    self.imageView.image = info[UIImagePickerControllerEditedImage];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -58,7 +59,7 @@
 
 - (IBAction)cloak:(id)sender {
     //ensure they've selected an image
-    if (!self.selectedImage) {
+    if (!self.imageView.image) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please select an image first." preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
         [self presentViewController:alert animated:YES completion:nil];

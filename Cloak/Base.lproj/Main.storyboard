@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="phG-0T-DEi">
-                                <rect key="frame" x="20" y="20" width="560" height="194"/>
+                                <rect key="frame" x="20" y="20" width="560" height="257"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -27,12 +27,17 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cKP-ry-Nj6"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="oZx-GU-QFd"/>
                                 </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDZ-G6-ZGC">
-                                <rect key="frame" x="252" y="222" width="95" height="30"/>
+                                <rect key="frame" x="252" y="285" width="95" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Upload Image"/>
                                 <connections>
@@ -47,21 +52,31 @@
                                     <action selector="cloak:" destination="BYZ-38-t0r" eventType="touchUpInside" id="awO-hW-fT6"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0dt-mA-ruE">
+                                <rect key="frame" x="20" y="323" width="560" height="217"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2rS-2f-GYo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A4K-Le-qqe"/>
+                            <constraint firstItem="gDZ-G6-ZGC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="CXq-FN-6ha"/>
                             <constraint firstAttribute="trailingMargin" secondItem="phG-0T-DEi" secondAttribute="trailing" id="Go8-sO-oqW"/>
+                            <constraint firstItem="0dt-mA-ruE" firstAttribute="width" secondItem="phG-0T-DEi" secondAttribute="width" id="MRP-Ln-B7x"/>
                             <constraint firstAttribute="leadingMargin" secondItem="phG-0T-DEi" secondAttribute="leading" id="Oxz-af-Ix0"/>
+                            <constraint firstItem="0dt-mA-ruE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="WVn-1b-7hC"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2rS-2f-GYo" secondAttribute="bottom" constant="20" id="aSd-Oi-ByA"/>
                             <constraint firstItem="gDZ-G6-ZGC" firstAttribute="centerX" secondItem="phG-0T-DEi" secondAttribute="centerX" id="bSd-dx-Csn"/>
                             <constraint firstItem="gDZ-G6-ZGC" firstAttribute="top" secondItem="phG-0T-DEi" secondAttribute="bottom" constant="8" id="lnD-7J-2v7"/>
+                            <constraint firstItem="0dt-mA-ruE" firstAttribute="top" secondItem="gDZ-G6-ZGC" secondAttribute="bottom" constant="8" id="wF3-Z3-0Oa"/>
                             <constraint firstItem="phG-0T-DEi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xA7-xN-JI1"/>
+                            <constraint firstItem="0dt-mA-ruE" firstAttribute="height" secondItem="phG-0T-DEi" secondAttribute="height" constant="-40" id="yGG-kX-LNy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cloakButton" destination="2rS-2f-GYo" id="beT-xW-dfF"/>
+                        <outlet property="imageView" destination="0dt-mA-ruE" id="3km-Jl-56l"/>
                         <outlet property="textView" destination="phG-0T-DEi" id="TIJ-k9-K7R"/>
                         <outlet property="uploadButton" destination="gDZ-G6-ZGC" id="DN2-aU-oFi"/>
                     </connections>
