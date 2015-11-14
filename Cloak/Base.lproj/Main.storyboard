@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,58 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="phG-0T-DEi">
+                                <rect key="frame" x="20" y="20" width="560" height="194"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="194" id="cKP-ry-Nj6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="oZx-GU-QFd"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDZ-G6-ZGC">
+                                <rect key="frame" x="252" y="222" width="95" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Upload Image"/>
+                                <connections>
+                                    <action selector="upload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zOf-Wn-u3h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rS-2f-GYo">
+                                <rect key="frame" x="280.5" y="550" width="39" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Cloak"/>
+                                <connections>
+                                    <action selector="cloak:" destination="BYZ-38-t0r" eventType="touchUpInside" id="awO-hW-fT6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2rS-2f-GYo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A4K-Le-qqe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="phG-0T-DEi" secondAttribute="trailing" id="Go8-sO-oqW"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="phG-0T-DEi" secondAttribute="leading" id="Oxz-af-Ix0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2rS-2f-GYo" secondAttribute="bottom" constant="20" id="aSd-Oi-ByA"/>
+                            <constraint firstItem="gDZ-G6-ZGC" firstAttribute="centerX" secondItem="phG-0T-DEi" secondAttribute="centerX" id="bSd-dx-Csn"/>
+                            <constraint firstItem="gDZ-G6-ZGC" firstAttribute="top" secondItem="phG-0T-DEi" secondAttribute="bottom" constant="8" id="lnD-7J-2v7"/>
+                            <constraint firstItem="phG-0T-DEi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xA7-xN-JI1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cloakButton" destination="2rS-2f-GYo" id="beT-xW-dfF"/>
+                        <outlet property="textView" destination="phG-0T-DEi" id="TIJ-k9-K7R"/>
+                        <outlet property="uploadButton" destination="gDZ-G6-ZGC" id="DN2-aU-oFi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="325" y="387"/>
         </scene>
     </scenes>
 </document>
