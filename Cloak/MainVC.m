@@ -82,7 +82,7 @@
     
     [[CloakingManager sharedManager] cloakText:self.textView.text inImage:self.imageView.image completion:^(UIImage *cloakedImage) {
         //TODO: handle cloaked image
-        self.imageView.image = cloakedImage;
+        [self performSegueWithIdentifier:@"showDownload" sender:self];
     }];
 }
 

@@ -36,7 +36,6 @@
                                 <state key="normal" title="Cloak"/>
                                 <connections>
                                     <action selector="cloak:" destination="BYZ-38-t0r" eventType="touchUpInside" id="awO-hW-fT6"/>
-                                    <segue destination="OMc-fp-Vc3" kind="show" id="rXW-mU-gHV"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="phG-0T-DEi">
@@ -80,6 +79,7 @@
                         <outlet property="imageView" destination="0dt-mA-ruE" id="3km-Jl-56l"/>
                         <outlet property="textView" destination="phG-0T-DEi" id="TIJ-k9-K7R"/>
                         <outlet property="uploadButton" destination="gDZ-G6-ZGC" id="DN2-aU-oFi"/>
+                        <segue destination="OMc-fp-Vc3" kind="show" identifier="showDownload" id="Hol-RN-hFR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
