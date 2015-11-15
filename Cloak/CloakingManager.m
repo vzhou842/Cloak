@@ -13,6 +13,8 @@ static NSUInteger bitsPerComponent = 8;
 
 static int bitsForLength = 16;
 
+static NSString *const kCLKEncryptionSalt = @"10001010101011001100111010";
+
 @implementation CloakingManager
 
 + (instancetype)sharedManager {
@@ -32,14 +34,13 @@ static int bitsForLength = 16;
 }
 
 - (void)cloakText:(NSString *)text inImage:(UIImage *)image completion:(nullable void (^)(UIImage *cloakedImage))completion {
-    
-    //NSLog(@"%@", [self binaryStringForASCII:@"a"]);
-    
+
     NSData *data = [text dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:NO];
     NSString *ascii = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-    //NSLog(@"ascii: %@", ascii);
     NSString *binary = [self binaryStringForASCII:ascii];
-    //NSLog(@"binary: %@", binary);
+    
+    // encrpyt only the binary, not the length
+    binary = [self encryptedBinaryFromString:binary];
     
     // store length of binary at beginning
     binary = [NSString stringWithFormat:@"%@%@", [self binaryStringForNSUInteger:binary.length], binary];
@@ -122,14 +123,43 @@ static int bitsForLength = 16;
         if (i % 4 == 3) continue; //alpha channel
         [dataString appendString:[self lastBitFromByte:rawData[i]] ? @"1" : @"0"];
     }
-    //NSLog(@"data string: %@", dataString);
-    NSString *ascii = [self asciiForBinaryString:dataString];
+    
+    // Decrypt the binary data
+    NSString *decrypted = [self decryptedBinaryFromString:dataString];
+    
+    NSString *ascii = [self asciiForBinaryString:decrypted];
     
     if (completion) {
         completion(ascii);
     }
     
     free(rawData);
+}
+
+#pragma mark - Encryption
+
+- (NSString *)encryptedBinaryFromString:(NSString *)string {
+    return [self XORString:string withString:kCLKEncryptionSalt];
+}
+
+- (NSString *)decryptedBinaryFromString:(NSString *)string {
+    return [self XORString:string withString:kCLKEncryptionSalt];
+}
+
+- (NSString *)XORString:(NSString *)string withString:(NSString *)salt {
+    int saltIndex = 0;
+    int stringIndex = 0;
+    NSMutableString *encrypted = [NSMutableString new];
+    while (stringIndex < string.length) {
+        if ([string characterAtIndex:stringIndex] == [salt characterAtIndex:saltIndex]) {
+            [encrypted appendString:@"0"];
+        } else {
+            [encrypted appendString:@"1"];
+        }
+        stringIndex++;
+        saltIndex = (saltIndex + 1) % salt.length;
+    }
+    return [encrypted copy];
 }
 
 #pragma mark - Helper
