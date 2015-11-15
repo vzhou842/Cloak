@@ -114,7 +114,11 @@ static NSString *const kCLKEncryptionSalt = @"10001010101011001100111010";
         [lengthString appendString:[self lastBitFromByte:rawData[i]] ? @"1" : @"0"];
     }
     int length = [self intForBinaryString:lengthString];
-    //NSLog(@"length of cloaked message binary: %d", length);
+    
+    // round up to nearest multiple of 8 length
+    if (length % bitsPerComponent != 0) {
+        length += bitsPerComponentg - (length % bitsPerComponent);
+    }
     
     // Reconstruct hidden data
     NSMutableString *dataString = [NSMutableString new];
