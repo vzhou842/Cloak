@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *uploadButton;
 @property (weak, nonatomic) IBOutlet UIButton *cloakButton;
+@property (strong, nonatomic) IBOutlet UILabel *uploadText;
 - (IBAction)upload:(id)sender;
 - (IBAction)cloak:(id)sender;
 
@@ -65,6 +66,7 @@
 
 - (IBAction)upload:(id)sender {
     [self presentViewController:self.imagePicker animated:YES completion:nil];
+    self.uploadText.hidden = YES;
 }
 
 - (IBAction)cloak:(id)sender {
