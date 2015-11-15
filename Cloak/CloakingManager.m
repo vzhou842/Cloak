@@ -117,7 +117,7 @@ static NSString *const kCLKEncryptionSalt = @"10001010101011001100111010";
     
     // round up to nearest multiple of 8 length
     if (length % bitsPerComponent != 0) {
-        length += bitsPerComponentg - (length % bitsPerComponent);
+        length += bitsPerComponent - (length % bitsPerComponent);
     }
     
     // Reconstruct hidden data
