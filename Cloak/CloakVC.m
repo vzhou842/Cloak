@@ -10,6 +10,7 @@
 #import "CloakingManager.h"
 #import "DownloadVC.h"
 #import "UITextView+Placeholder.h"
+#import "Constants.h"
 
 @interface CloakVC () <UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -18,9 +19,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *uploadButton;
 @property (weak, nonatomic) IBOutlet UIButton *cloakButton;
+@property (weak, nonatomic) IBOutlet UIButton *continueButton;
 @property (strong, nonatomic) IBOutlet UILabel *uploadText;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 - (IBAction)upload:(id)sender;
 - (IBAction)cloak:(id)sender;
+- (IBAction)continuePressed:(id)sender;
+- (IBAction)back:(id)sender;
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (nonatomic, strong) UIImage *cloakedImage;
@@ -28,6 +33,10 @@
 @end
 
 @implementation CloakVC
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +50,8 @@
     
     self.textView.placeholder = @"Type or Paste any sensitive text that you want hidden here.";
     self.textView.placeholderColor = [UIColor lightGrayColor];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetVC) name:CLK_NOTIF_RESET_CLOAK object:nil];
 }
 
 #pragma mark - Accessors
@@ -63,7 +74,12 @@
     self.imageView.image = info[UIImagePickerControllerEditedImage];
     self.imageView.backgroundColor = [UIColor clearColor];
     [picker dismissViewControllerAnimated:YES completion:nil];
-    self.uploadText.hidden = YES;
+    self.uploadText.alpha = 0;
+    
+    self.uploadButton.alpha = 0;
+    self.uploadButton.enabled = NO;
+    self.cloakButton.alpha = 1;
+    self.cloakButton.enabled = YES;
 }
 
 #pragma mark - Actions
@@ -74,14 +90,6 @@
 }
 
 - (IBAction)cloak:(id)sender {
-    //ensure they've entered text
-    if (self.textView.text.length == 0) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please enter text first." preferredStyle:UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
-        [self presentViewController:alert animated:YES completion:nil];
-        return;
-    }
-    
     //ensure they've selected an image
     if (!self.imageView.image) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please select an image first." preferredStyle:UIAlertControllerStyleAlert];
@@ -96,6 +104,78 @@
     }];
 }
 
+- (IBAction)continuePressed:(id)sender {
+    //ensure they've entered text
+    if (self.textView.text.length == 0) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please enter text first." preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    }
+    
+    //animate out
+    self.continueButton.enabled = NO;
+    self.textView.userInteractionEnabled = NO;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.continueButton.alpha = 0;
+        self.textView.alpha = 0;
+    }];
+    
+    //animate in
+    self.uploadButton.enabled = YES;
+    self.uploadButton.alpha = 0;
+    self.imageView.alpha = 0;
+    self.uploadText.alpha = 0;
+    self.backButton.enabled = YES;
+    self.backButton.alpha = 0;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.uploadButton.alpha = 1;
+        self.imageView.alpha = 1;
+        self.uploadText.alpha = 1;
+        self.backButton.alpha = 1;
+    }];
+}
+
+- (IBAction)back:(id)sender {
+    if (self.uploadButton.alpha == 1) {
+        //currently in upload
+        
+        //animate out
+        self.uploadButton.enabled = NO;
+        self.backButton.enabled = NO;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.uploadButton.alpha = 0;
+            self.imageView.alpha = 0;
+            self.uploadText.alpha = 0;
+            self.backButton.alpha = 0;
+        }];
+        
+        //animate in
+        self.continueButton.enabled = YES;
+        self.textView.userInteractionEnabled = YES;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.continueButton.alpha = 1;
+            self.textView.alpha = 1;
+        }];
+    } else if (self.cloakButton.alpha == 1) {
+        //currently in cloak
+        
+        //animate out
+        self.cloakButton.enabled = NO;
+        self.imageView.image = nil;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.cloakButton.alpha = 0;
+        }];
+        
+        //animate in
+        self.uploadButton.enabled = YES;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.uploadText.alpha = 1;
+            self.uploadButton.alpha = 1;
+        }];
+    }
+}
+
 -(void)dismissKeyboard {
     [self.textView resignFirstResponder];
 }
@@ -107,7 +187,20 @@
     }
 }
 
-
-
+- (void)resetVC {
+    self.textView.text = @"";
+    self.imageView.image = nil;
+    self.imageView.alpha = 0;
+    self.textView.alpha = 1;
+    self.continueButton.enabled = YES;
+    self.continueButton.alpha = 1;
+    self.uploadButton.alpha = 0;
+    self.uploadButton.enabled = NO;
+    self.cloakButton.alpha = 0;
+    self.cloakButton.enabled = NO;
+    self.uploadText.alpha = 0;
+    self.backButton.enabled = NO;
+    self.backButton.alpha = 0;
+}
 
 @end

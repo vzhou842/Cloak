@@ -18,12 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0dt-mA-ruE">
-                                <rect key="frame" x="20" y="314" width="560" height="165"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0dt-mA-ruE">
+                                <rect key="frame" x="20" y="44" width="560" height="435"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rS-2f-GYo">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rS-2f-GYo">
                                 <rect key="frame" x="20" y="487" width="560" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.18823529411764706" green="0.70588235294117641" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="phG-0T-DEi">
-                                <rect key="frame" x="20" y="20" width="560" height="234"/>
+                                <rect key="frame" x="20" y="20" width="560" height="459"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -63,8 +63,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="oZx-GU-QFd"/>
                                 </connections>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDZ-G6-ZGC">
-                                <rect key="frame" x="20" y="262" width="560" height="44"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDZ-G6-ZGC">
+                                <rect key="frame" x="20" y="487" width="560" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.18823529411764706" green="0.70588235294117641" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -83,23 +83,58 @@
                                     <action selector="upload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zOf-Wn-u3h"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your Uploaded Image will appear here." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bg6-5b-oWP">
-                                <rect key="frame" x="153" y="386" width="295" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmw-8U-Myf" userLabel="Continue">
+                                <rect key="frame" x="20" y="487" width="560" height="44"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.70588235290000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="nyO-ga-I6n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continuePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v4y-3c-16P"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Uploaded Image will appear here." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bg6-5b-oWP">
+                                <rect key="frame" x="176" y="253" width="249" height="17"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggc-m2-iOQ">
+                                <rect key="frame" x="12" y="4" width="30" height="41"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                <state key="normal" title="←">
+                                    <color key="titleColor" red="0.18823529410000001" green="0.70588235290000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aEo-ln-o0K"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Bg6-5b-oWP" firstAttribute="centerX" secondItem="0dt-mA-ruE" secondAttribute="centerX" id="2ti-mQ-VBg"/>
+                            <constraint firstItem="gDZ-G6-ZGC" firstAttribute="top" secondItem="phG-0T-DEi" secondAttribute="bottom" constant="8" id="3Ey-fE-i3H"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gDZ-G6-ZGC" secondAttribute="bottom" constant="20" id="4Wu-zD-rKk"/>
                             <constraint firstItem="2rS-2f-GYo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A4K-Le-qqe"/>
                             <constraint firstItem="gDZ-G6-ZGC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-16" id="CXq-FN-6ha"/>
+                            <constraint firstItem="ggc-m2-iOQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-8" id="G2l-Bi-Six"/>
                             <constraint firstAttribute="trailingMargin" secondItem="phG-0T-DEi" secondAttribute="trailing" id="Go8-sO-oqW"/>
                             <constraint firstItem="Bg6-5b-oWP" firstAttribute="top" secondItem="0dt-mA-ruE" secondAttribute="top" id="Grl-zu-LFU"/>
                             <constraint firstAttribute="leadingMargin" secondItem="gDZ-G6-ZGC" secondAttribute="leading" id="HYz-vV-M0a"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="jmw-8U-Myf" secondAttribute="leading" id="HoB-cc-tOb"/>
                             <constraint firstItem="2rS-2f-GYo" firstAttribute="top" secondItem="0dt-mA-ruE" secondAttribute="bottom" constant="8" id="L9c-CS-QAf"/>
                             <constraint firstItem="0dt-mA-ruE" firstAttribute="width" secondItem="phG-0T-DEi" secondAttribute="width" id="MRP-Ln-B7x"/>
                             <constraint firstAttribute="leadingMargin" secondItem="phG-0T-DEi" secondAttribute="leading" id="Oxz-af-Ix0"/>
@@ -107,24 +142,33 @@
                             <constraint firstItem="0dt-mA-ruE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="WVn-1b-7hC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="phG-0T-DEi" secondAttribute="trailing" id="XWg-Fa-Z0J"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2rS-2f-GYo" secondAttribute="bottom" constant="20" id="aSd-Oi-ByA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jmw-8U-Myf" secondAttribute="bottom" constant="20" id="ado-jB-tKG"/>
                             <constraint firstItem="gDZ-G6-ZGC" firstAttribute="centerX" secondItem="phG-0T-DEi" secondAttribute="centerX" id="bSd-dx-Csn"/>
+                            <constraint firstItem="ggc-m2-iOQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-16" id="hrt-5s-DYI"/>
+                            <constraint firstItem="0dt-mA-ruE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="jnN-QE-ypx"/>
                             <constraint firstItem="gDZ-G6-ZGC" firstAttribute="top" secondItem="phG-0T-DEi" secondAttribute="bottom" constant="8" id="lnD-7J-2v7"/>
                             <constraint firstItem="2rS-2f-GYo" firstAttribute="width" secondItem="gDZ-G6-ZGC" secondAttribute="width" id="ul6-nF-Qs0"/>
                             <constraint firstItem="0dt-mA-ruE" firstAttribute="top" secondItem="gDZ-G6-ZGC" secondAttribute="bottom" constant="8" id="wF3-Z3-0Oa"/>
                             <constraint firstItem="phG-0T-DEi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xA7-xN-JI1"/>
+                            <constraint firstItem="jmw-8U-Myf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xGr-Xz-IE8"/>
                             <constraint firstItem="0dt-mA-ruE" firstAttribute="height" secondItem="phG-0T-DEi" secondAttribute="height" constant="-64" id="yGG-kX-LNy"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Go8-sO-oqW"/>
+                                <exclude reference="wF3-Z3-0Oa"/>
                                 <exclude reference="yGG-kX-LNy"/>
+                                <exclude reference="Go8-sO-oqW"/>
                                 <exclude reference="Grl-zu-LFU"/>
+                                <exclude reference="CXq-FN-6ha"/>
+                                <exclude reference="lnD-7J-2v7"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cloak" id="TaO-Pi-dbr"/>
                     <connections>
+                        <outlet property="backButton" destination="ggc-m2-iOQ" id="ZIG-Wc-fTO"/>
                         <outlet property="cloakButton" destination="2rS-2f-GYo" id="beT-xW-dfF"/>
+                        <outlet property="continueButton" destination="jmw-8U-Myf" id="yBw-ka-hWm"/>
                         <outlet property="imageView" destination="0dt-mA-ruE" id="3km-Jl-56l"/>
                         <outlet property="textView" destination="phG-0T-DEi" id="TIJ-k9-K7R"/>
                         <outlet property="uploadButton" destination="gDZ-G6-ZGC" id="DN2-aU-oFi"/>

@@ -8,6 +8,7 @@
 
 #import "DownloadVC.h"
 @import AssetsLibrary;
+#import "Constants.h"
 
 @interface DownloadVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -34,6 +35,7 @@
     UIAlertController* saveAlert = [UIAlertController alertControllerWithTitle:@"Success!" message:@"The Cloaked image has been saved to your Camera Roll. Delete the original version of the image now.\n\nOpen this app, select the Cloaked image, and decloak it to recover your protected information at any time." preferredStyle:UIAlertControllerStyleAlert];
     ;
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:CLK_NOTIF_RESET_CLOAK object:nil];
         [saveAlert dismissViewControllerAnimated:YES completion:nil];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
