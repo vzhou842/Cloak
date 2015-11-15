@@ -63,7 +63,7 @@
     if (!_imagePicker) {
         _imagePicker = [[UIImagePickerController alloc] init];
         _imagePicker.delegate = self;
-        _imagePicker.allowsEditing = YES;
+        _imagePicker.allowsEditing = NO;
         _imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     return _imagePicker;
@@ -86,7 +86,7 @@
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    self.imageView.image = info[UIImagePickerControllerEditedImage];
+    self.imageView.image = info[UIImagePickerControllerOriginalImage];
     self.imageView.backgroundColor = [UIColor clearColor];
     [picker dismissViewControllerAnimated:YES completion:nil];
     self.uploadText.alpha = 0;
