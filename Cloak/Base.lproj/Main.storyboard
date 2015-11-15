@@ -354,13 +354,24 @@
                                     <action selector="done:" destination="ZxW-o1-9t9" eventType="touchUpInside" id="thV-u5-W9N"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFL-Xi-fMB" userLabel="Divider">
+                                <rect key="frame" x="20" y="27" width="560" height="1"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.70588235290000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="cvU-oa-3rE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="zFL-Xi-fMB" firstAttribute="bottom" secondItem="dAR-uQ-YgB" secondAttribute="top" id="CVL-lc-fYh"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="zFL-Xi-fMB" secondAttribute="leading" id="DBz-v9-cc3"/>
                             <constraint firstItem="dAR-uQ-YgB" firstAttribute="top" secondItem="Hbe-7z-Xlh" secondAttribute="bottom" constant="8" id="FZf-8C-yNU"/>
                             <constraint firstItem="Rbe-CL-QMW" firstAttribute="centerX" secondItem="9GK-in-5lP" secondAttribute="centerX" id="LqT-5X-nMG"/>
                             <constraint firstItem="Rbe-CL-QMW" firstAttribute="top" secondItem="dAR-uQ-YgB" secondAttribute="bottom" constant="8" id="N4r-8p-GZw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zFL-Xi-fMB" secondAttribute="trailing" id="OIX-Yo-HJk"/>
                             <constraint firstItem="JC7-IZ-egC" firstAttribute="top" secondItem="Rbe-CL-QMW" secondAttribute="bottom" constant="20" id="bTm-mu-2VC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dAR-uQ-YgB" secondAttribute="trailing" id="mMJ-b9-b02"/>
                             <constraint firstAttribute="leadingMargin" secondItem="dAR-uQ-YgB" secondAttribute="leading" id="mtr-Xm-ZQX"/>
