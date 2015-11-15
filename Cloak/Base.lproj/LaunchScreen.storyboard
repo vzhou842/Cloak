@@ -16,8 +16,36 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLOAK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7y0-sJ-1DJ">
+                                <rect key="frame" x="239" y="228" width="121" height="43"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" red="0.18823529410000001" green="0.70588235290000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Built at HackPrinceton Fall 2015 Victor Zhou, Mack Lee, Andrew Jin, Sarah Zhou" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oty-Ti-zDF">
+                                <rect key="frame" x="177" y="565" width="246.5" height="26.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="5K5-PW-f2E">
+                                <rect key="frame" x="255" y="287" width="90" height="90"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="oty-Ti-zDF" secondAttribute="bottom" constant="8" id="862-OW-w5W"/>
+                            <constraint firstItem="5K5-PW-f2E" firstAttribute="top" secondItem="7y0-sJ-1DJ" secondAttribute="bottom" constant="16" id="B0w-KN-F4P"/>
+                            <constraint firstItem="5K5-PW-f2E" firstAttribute="centerX" secondItem="7y0-sJ-1DJ" secondAttribute="centerX" id="O8H-cq-Yuo"/>
+                            <constraint firstItem="7y0-sJ-1DJ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-50" id="QkG-ZH-B2e"/>
+                            <constraint firstItem="7y0-sJ-1DJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="a1g-gL-vpd"/>
+                            <constraint firstItem="oty-Ti-zDF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ubq-ee-jOl"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -25,4 +53,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="90" height="90"/>
+    </resources>
 </document>
