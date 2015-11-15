@@ -90,7 +90,7 @@
         <!--Decloak-->
         <scene sceneID="Kb8-e2-pE0">
             <objects>
-                <viewController id="b7k-w8-Ine" sceneMemberID="viewController">
+                <viewController id="b7k-w8-Ine" customClass="DecloakVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jVm-nv-7yL"/>
                         <viewControllerLayoutGuide type="bottom" id="qEx-fG-Yfx"/>

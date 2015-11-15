@@ -15,6 +15,7 @@
 		A5545DB21BF7CD8D005382CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5545DB11BF7CD8D005382CB /* Assets.xcassets */; };
 		A5545DB51BF7CD8D005382CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5545DB31BF7CD8D005382CB /* LaunchScreen.storyboard */; };
 		A5545DBE1BF7D5A6005382CB /* CloakingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5545DBD1BF7D5A6005382CB /* CloakingManager.m */; };
+		A5545DC11BF80945005382CB /* DecloakVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A5545DC01BF80945005382CB /* DecloakVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		A5545DB61BF7CD8D005382CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5545DBC1BF7D5A6005382CB /* CloakingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloakingManager.h; sourceTree = "<group>"; };
 		A5545DBD1BF7D5A6005382CB /* CloakingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloakingManager.m; sourceTree = "<group>"; };
+		A5545DBF1BF80945005382CB /* DecloakVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecloakVC.h; sourceTree = "<group>"; };
+		A5545DC01BF80945005382CB /* DecloakVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecloakVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				A5545DA91BF7CD8D005382CB /* AppDelegate.m */,
 				A5545DAB1BF7CD8D005382CB /* CloakVC.h */,
 				A5545DAC1BF7CD8D005382CB /* CloakVC.m */,
+				A5545DBF1BF80945005382CB /* DecloakVC.h */,
+				A5545DC01BF80945005382CB /* DecloakVC.m */,
 				A5545DBC1BF7D5A6005382CB /* CloakingManager.h */,
 				A5545DBD1BF7D5A6005382CB /* CloakingManager.m */,
 				2CA346821BF7F0DF00BC590E /* DownloadVC.h */,
@@ -161,6 +166,7 @@
 			files = (
 				A5545DAD1BF7CD8D005382CB /* CloakVC.m in Sources */,
 				2CA346841BF7F0DF00BC590E /* DownloadVC.m in Sources */,
+				A5545DC11BF80945005382CB /* DecloakVC.m in Sources */,
 				A5545DAA1BF7CD8D005382CB /* AppDelegate.m in Sources */,
 				A5545DA71BF7CD8D005382CB /* main.m in Sources */,
 				A5545DBE1BF7D5A6005382CB /* CloakingManager.m in Sources */,
