@@ -30,12 +30,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+
+    
+    [[_uploadButton layer] setBorderWidth:1];
+    [[_uploadButton layer] setCornerRadius:5];
+    [[_uploadButton layer] setBorderColor:[UIColor whiteColor].CGColor];
+    
 }
 
 #pragma mark - Accessors
@@ -50,9 +57,11 @@
     return _imagePicker;
 }
 
+
 #pragma mark - UINavigationControllerDelegate
 
 #pragma mark - UIImagePickerControllerDelegate
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     self.imageView.image = info[UIImagePickerControllerEditedImage];
@@ -98,5 +107,8 @@
         vc.downloadImage = self.cloakedImage;
     }
 }
+
+
+
 
 @end
