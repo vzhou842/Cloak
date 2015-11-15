@@ -15,4 +15,6 @@
 
 - (void)cloakText:(nonnull NSString *)text inImage:(nonnull UIImage *)image completion:(nullable void (^)(UIImage *cloakedImage))completion;
 
+- (void)decloakTextFromImage:(UIImage *)image completion:(nullable void (^)(NSString *text))completion;
+
 @end
