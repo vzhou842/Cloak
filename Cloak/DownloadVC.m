@@ -21,13 +21,13 @@
     
     self.imageView.image = self.downloadImage;
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
-    singleTap.numberOfTapsRequired = 1;
-    [self.imageView setUserInteractionEnabled:YES];
-    [self.imageView addGestureRecognizer:singleTap];
 }
 
--(void)tapDetected{
+- (void)viewDidAppear:(BOOL)animated {
+    [self saveImage];
+}
+
+-(void)saveImage {
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     UIImage *image = self.downloadImage;
     [library writeImageDataToSavedPhotosAlbum: UIImagePNGRepresentation(image) metadata:nil completionBlock:nil];
