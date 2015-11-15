@@ -9,6 +9,7 @@
 #import "CloakVC.h"
 #import "CloakingManager.h"
 #import "DownloadVC.h"
+#import "UITextView+Placeholder.h"
 
 @interface CloakVC () <UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -37,6 +38,9 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    
+    self.textView.placeholder = @"Type or Paste any sensitive text that you want hidden here.";
+    self.textView.placeholderColor = [UIColor lightGrayColor];
 }
 
 #pragma mark - Accessors
