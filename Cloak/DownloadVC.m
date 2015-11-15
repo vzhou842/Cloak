@@ -7,6 +7,7 @@
 //
 
 #import "DownloadVC.h"
+@import AssetsLibrary;
 
 @interface DownloadVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -24,23 +25,22 @@
     singleTap.numberOfTapsRequired = 1;
     [self.imageView setUserInteractionEnabled:YES];
     [self.imageView addGestureRecognizer:singleTap];
-    
-    
-
 }
 
 -(void)tapDetected{
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    UIImage *image = self.downloadImage;
+    [library writeImageDataToSavedPhotosAlbum: UIImagePNGRepresentation(image) metadata:nil completionBlock:nil];
+    
     UIAlertController* saveAlert = [UIAlertController alertControllerWithTitle:@"Success!" message:@"Cloaked image has been saved to Camera Roll" preferredStyle:UIAlertControllerStyleAlert];
     ;
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         [saveAlert dismissViewControllerAnimated:YES completion:nil];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
-
+    [saveAlert addAction:(ok)];
     
     [self presentViewController:saveAlert animated:YES completion:nil];
-    UIImageWriteToSavedPhotosAlbum(self.downloadImage, nil, nil, nil);
-    [saveAlert addAction:(ok)];
 }
 
 
