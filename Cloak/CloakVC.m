@@ -163,6 +163,7 @@
         //animate out
         self.cloakButton.enabled = NO;
         self.imageView.image = nil;
+        self.imageView.backgroundColor = DARK_DARK_GRAY;
         [UIView animateWithDuration:0.5 animations:^{
             self.cloakButton.alpha = 0;
         }];
@@ -188,19 +189,21 @@
 }
 
 - (void)resetVC {
+    [self back:self];
+    [self back:self];
     self.textView.text = @"";
-    self.imageView.image = nil;
-    self.imageView.alpha = 0;
-    self.textView.alpha = 1;
-    self.continueButton.enabled = YES;
-    self.continueButton.alpha = 1;
-    self.uploadButton.alpha = 0;
-    self.uploadButton.enabled = NO;
-    self.cloakButton.alpha = 0;
-    self.cloakButton.enabled = NO;
-    self.uploadText.alpha = 0;
-    self.backButton.enabled = NO;
-    self.backButton.alpha = 0;
+//    self.imageView.image = nil;
+//    self.imageView.alpha = 0;
+//    self.textView.alpha = 1;
+//    self.continueButton.enabled = YES;
+//    self.continueButton.alpha = 1;
+//    self.uploadButton.alpha = 0;
+//    self.uploadButton.enabled = NO;
+//    self.cloakButton.alpha = 0;
+//    self.cloakButton.enabled = NO;
+//    self.uploadText.alpha = 0;
+//    self.backButton.enabled = NO;
+//    self.backButton.alpha = 0;
 }
 
 @end

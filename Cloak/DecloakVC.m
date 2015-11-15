@@ -9,6 +9,7 @@
 #import "DecloakVC.h"
 #import "CloakingManager.h"
 #import "DecloakedTextVC.h"
+#import "Constants.h"
 
 @interface DecloakVC () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -16,8 +17,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *decloakButton;
 @property (weak, nonatomic) IBOutlet UILabel *imagePlaceholderLabel;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 - (IBAction)upload:(id)sender;
 - (IBAction)decloak:(id)sender;
+- (IBAction)back:(id)sender;
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (nonatomic, copy) NSString *decloakedText;
@@ -26,9 +29,15 @@
 
 @implementation DecloakVC
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetVC) name:CLK_NOTIF_RESET_DECLOAK object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,8 +64,15 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     self.imageView.image = info[UIImagePickerControllerEditedImage];
     self.imageView.backgroundColor = [UIColor clearColor];
-    self.imagePlaceholderLabel.hidden = YES;
+    self.imagePlaceholderLabel.alpha = 0;
     [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    self.uploadButton.enabled = NO;
+    self.uploadButton.alpha = 0;
+    self.decloakButton.enabled = YES;
+    self.decloakButton.alpha = 1;
+    self.backButton.enabled = YES;
+    self.backButton.alpha = 1;
 }
 
 #pragma mark - Actions
@@ -81,11 +97,38 @@
     }];
 }
 
+- (IBAction)back:(id)sender {
+    if (self.decloakButton.alpha == 1) {
+        //in decloak
+        
+        //animate out
+        self.imageView.image = nil;
+        self.imageView.backgroundColor = DARK_DARK_GRAY;
+        self.decloakButton.enabled = NO;
+        self.backButton.enabled = NO;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.decloakButton.alpha = 0;
+            self.backButton.alpha = 0;
+        }];
+        
+        //animate in
+        self.uploadButton.enabled = YES;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.uploadButton.alpha = 1;
+            self.imagePlaceholderLabel.alpha = 1;
+        }];
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showText"]) {
         DecloakedTextVC *vc = (DecloakedTextVC *)[segue destinationViewController];
         vc.decloakedText = self.decloakedText;
     }
+}
+
+- (void)resetVC {
+    [self back:self];
 }
 
 @end

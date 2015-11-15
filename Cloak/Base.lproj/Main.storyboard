@@ -21,7 +21,12 @@
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0dt-mA-ruE">
                                 <rect key="frame" x="20" y="44" width="560" height="435"/>
                                 <animations/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rS-2f-GYo">
                                 <rect key="frame" x="20" y="487" width="560" height="44"/>
@@ -193,11 +198,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l4A-6s-rpg">
-                                <rect key="frame" x="20" y="20" width="560" height="419"/>
+                                <rect key="frame" x="20" y="44" width="560" height="447"/>
                                 <animations/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwA-7s-7O9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select an image to Decloak." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmi-V1-R0P">
+                                <rect key="frame" x="210" y="259" width="180" height="17"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwA-7s-7O9">
                                 <rect key="frame" x="20" y="499" width="560" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.18823529410000001" green="0.70588235290000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -217,15 +234,8 @@
                                     <action selector="decloak:" destination="b7k-w8-Ine" eventType="touchUpInside" id="RjH-qZ-dUS"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select an image to Decloak." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmi-V1-R0P">
-                                <rect key="frame" x="176" y="222" width="249" height="17"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eu7-95-1PS">
-                                <rect key="frame" x="20" y="447" width="560" height="44"/>
+                                <rect key="frame" x="20" y="499" width="560" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.18823529410000001" green="0.70588235290000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -244,18 +254,32 @@
                                     <action selector="upload:" destination="b7k-w8-Ine" eventType="touchUpInside" id="0hh-1g-QBd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v39-Q3-sB8">
+                                <rect key="frame" x="12" y="4" width="30" height="41"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                <state key="normal" title="←">
+                                    <color key="titleColor" red="0.18823529410000001" green="0.70588235290000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="b7k-w8-Ine" eventType="touchUpInside" id="1oX-vg-fw1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="v39-Q3-sB8" firstAttribute="top" secondItem="jVm-nv-7yL" secondAttribute="bottom" constant="-16" id="0cc-P4-WVS"/>
                             <constraint firstItem="mmi-V1-R0P" firstAttribute="centerX" secondItem="l4A-6s-rpg" secondAttribute="centerX" id="4JM-Ho-HYd"/>
                             <constraint firstAttribute="leadingMargin" secondItem="l4A-6s-rpg" secondAttribute="leading" id="5GA-pr-6lb"/>
-                            <constraint firstItem="l4A-6s-rpg" firstAttribute="top" secondItem="jVm-nv-7yL" secondAttribute="bottom" id="8JF-7p-wdf"/>
+                            <constraint firstItem="l4A-6s-rpg" firstAttribute="top" secondItem="jVm-nv-7yL" secondAttribute="bottom" constant="24" id="8JF-7p-wdf"/>
                             <constraint firstItem="eu7-95-1PS" firstAttribute="top" secondItem="l4A-6s-rpg" secondAttribute="bottom" constant="8" id="EL6-wI-aSC"/>
+                            <constraint firstItem="qEx-fG-Yfx" firstAttribute="top" secondItem="eu7-95-1PS" secondAttribute="bottom" constant="8" id="G3D-Hc-SDJ"/>
                             <constraint firstItem="UwA-7s-7O9" firstAttribute="top" secondItem="l4A-6s-rpg" secondAttribute="bottom" constant="8" id="JR2-mH-7Gb"/>
                             <constraint firstItem="l4A-6s-rpg" firstAttribute="top" secondItem="eu7-95-1PS" secondAttribute="bottom" constant="8" id="c50-Bc-6ji"/>
                             <constraint firstItem="mmi-V1-R0P" firstAttribute="centerY" secondItem="l4A-6s-rpg" secondAttribute="centerY" id="eBM-Qg-StV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="l4A-6s-rpg" secondAttribute="trailing" id="fw6-yy-YRI"/>
+                            <constraint firstItem="v39-Q3-sB8" firstAttribute="leading" secondItem="ePu-hV-xdl" secondAttribute="leadingMargin" constant="-8" id="hWr-BU-FK8"/>
                             <constraint firstItem="UwA-7s-7O9" firstAttribute="top" secondItem="eu7-95-1PS" secondAttribute="bottom" constant="8" id="htk-ui-O1h"/>
                             <constraint firstItem="eu7-95-1PS" firstAttribute="centerX" secondItem="ePu-hV-xdl" secondAttribute="centerX" id="l2S-yM-k3V"/>
                             <constraint firstAttribute="leadingMargin" secondItem="UwA-7s-7O9" secondAttribute="leading" id="nDJ-5Z-ahL"/>
@@ -267,13 +291,15 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="c50-Bc-6ji"/>
-                                <exclude reference="nac-hf-QKc"/>
                                 <exclude reference="JR2-mH-7Gb"/>
+                                <exclude reference="htk-ui-O1h"/>
+                                <exclude reference="nac-hf-QKc"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Decloak" id="ACj-Jw-quj"/>
                     <connections>
+                        <outlet property="backButton" destination="v39-Q3-sB8" id="bro-ZE-u3P"/>
                         <outlet property="decloakButton" destination="UwA-7s-7O9" id="Yvc-fm-NE3"/>
                         <outlet property="imagePlaceholderLabel" destination="mmi-V1-R0P" id="gvA-UC-l7c"/>
                         <outlet property="imageView" destination="l4A-6s-rpg" id="z7z-oK-oia"/>
@@ -300,7 +326,8 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dAR-uQ-YgB">
                                 <rect key="frame" x="20" y="28" width="560" height="514"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
@@ -308,7 +335,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbe-CL-QMW">
                                 <rect key="frame" x="277" y="550" width="46" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.18823529410000001" green="0.70588235290000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="done:" destination="ZxW-o1-9t9" eventType="touchUpInside" id="thV-u5-W9N"/>
                                 </connections>
@@ -374,7 +403,7 @@
                             </imageView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="SWL-Q5-QSt" secondAttribute="trailing" id="Bng-iV-z8c"/>
                             <constraint firstItem="pMB-e0-r3K" firstAttribute="top" secondItem="SWL-Q5-QSt" secondAttribute="bottom" constant="20" id="Uvt-SK-slS"/>

@@ -7,6 +7,7 @@
 //
 
 #import "DecloakedTextVC.h"
+#import "Constants.h"
 
 @interface DecloakedTextVC ()
 
@@ -34,6 +35,7 @@
 #pragma mark - Actions
 
 - (IBAction)done:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:CLK_NOTIF_RESET_DECLOAK object:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
