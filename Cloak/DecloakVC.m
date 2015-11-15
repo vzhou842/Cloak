@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *uploadButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *decloakButton;
+@property (weak, nonatomic) IBOutlet UILabel *imagePlaceholderLabel;
 - (IBAction)upload:(id)sender;
 - (IBAction)decloak:(id)sender;
 
@@ -53,6 +54,8 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     self.imageView.image = info[UIImagePickerControllerEditedImage];
+    self.imageView.backgroundColor = [UIColor clearColor];
+    self.imagePlaceholderLabel.hidden = YES;
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
