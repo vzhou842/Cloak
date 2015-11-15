@@ -60,13 +60,15 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     self.imageView.image = info[UIImagePickerControllerEditedImage];
     [picker dismissViewControllerAnimated:YES completion:nil];
+    self.uploadText.hidden = YES;
+    
 }
 
 #pragma mark - Actions
 
 - (IBAction)upload:(id)sender {
     [self presentViewController:self.imagePicker animated:YES completion:nil];
-    self.uploadText.hidden = YES;
+    
 }
 
 - (IBAction)cloak:(id)sender {
