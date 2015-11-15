@@ -41,6 +41,7 @@
 		A5545DC01BF80945005382CB /* DecloakVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecloakVC.m; sourceTree = "<group>"; };
 		A5545DC21BF85ACB005382CB /* DecloakedTextVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecloakedTextVC.h; sourceTree = "<group>"; };
 		A5545DC31BF85ACB005382CB /* DecloakedTextVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecloakedTextVC.m; sourceTree = "<group>"; };
+		A560A4C01BF87AF8004C0147 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		BE3463A49378CADFE0DF3689 /* Pods-Cloak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloak.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cloak/Pods-Cloak.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +88,7 @@
 			children = (
 				A5545DA81BF7CD8D005382CB /* AppDelegate.h */,
 				A5545DA91BF7CD8D005382CB /* AppDelegate.m */,
+				A560A4C01BF87AF8004C0147 /* Constants.h */,
 				A5545DAB1BF7CD8D005382CB /* CloakVC.h */,
 				A5545DAC1BF7CD8D005382CB /* CloakVC.m */,
 				A5545DBF1BF80945005382CB /* DecloakVC.h */,

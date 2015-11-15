@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Constants.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }
+                                             forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : CLK_GREEN }
+                                             forState:UIControlStateSelected];
+    
     return YES;
 }
 
