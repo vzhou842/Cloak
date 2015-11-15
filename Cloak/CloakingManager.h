@@ -13,8 +13,8 @@
 
 + (nonnull instancetype)sharedManager;
 
-- (void)cloakText:(nonnull NSString *)text inImage:(nonnull UIImage *)image completion:(nullable void (^)(UIImage *cloakedImage))completion;
+- (void)cloakText:(nonnull NSString *)text inImage:(nonnull UIImage *)image completion:(nullable void (^)(UIImage * _Nonnull cloakedImage))completion;
 
-- (void)decloakTextFromImage:(UIImage *)image completion:(nullable void (^)(NSString *text))completion;
+- (void)decloakTextFromImage:(nonnull UIImage *)image completion:(nullable void (^)(NSString * _Nonnull text))completion;
 
 @end

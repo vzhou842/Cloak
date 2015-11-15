@@ -51,17 +51,15 @@
     return _imagePicker;
 }
 
-
 #pragma mark - UINavigationControllerDelegate
 
 #pragma mark - UIImagePickerControllerDelegate
 
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     self.imageView.image = info[UIImagePickerControllerEditedImage];
+    self.imageView.backgroundColor = [UIColor clearColor];
     [picker dismissViewControllerAnimated:YES completion:nil];
     self.uploadText.hidden = YES;
-    
 }
 
 #pragma mark - Actions
