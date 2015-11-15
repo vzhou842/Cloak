@@ -10,6 +10,7 @@
 
 @interface DownloadVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @end
 
 @implementation DownloadVC
@@ -25,13 +26,23 @@
     [self.imageView addGestureRecognizer:singleTap];
     
     
-    
+
 }
 
 -(void)tapDetected{
-    NSLog(@"single Tap on imageview");
+    UIAlertController* saveAlert = [UIAlertController alertControllerWithTitle:@"Success!" message:@"Cloaked image has been saved to Camera Roll" preferredStyle:UIAlertControllerStyleAlert];
+    ;
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [saveAlert dismissViewControllerAnimated:YES completion:nil];
+    }];
+
+    [saveAlert addAction:(ok)];
+    [self presentViewController:saveAlert animated:YES completion:nil];
+    
     UIImageWriteToSavedPhotosAlbum(self.downloadImage, nil, nil, nil);
     
 }
+
+//TODO!!! NEED TO POP THE SCREEN AFTER PRESSING THE OK BUTTON!!
 
 @end
