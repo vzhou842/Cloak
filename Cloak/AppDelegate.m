@@ -23,6 +23,7 @@
                                              forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : CLK_GREEN }
                                              forState:UIControlStateSelected];
+    [[UITabBar appearance] setSelectedImageTintColor:CLK_GREEN];
     
     return YES;
 }
