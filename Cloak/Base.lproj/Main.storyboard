@@ -98,14 +98,51 @@
                     <view key="view" contentMode="scaleToFill" id="ePu-hV-xdl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eu7-95-1PS">
+                                <rect key="frame" x="253" y="20" width="95" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Upload Image"/>
+                                <connections>
+                                    <action selector="upload:" destination="b7k-w8-Ine" eventType="touchUpInside" id="0hh-1g-QBd"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l4A-6s-rpg">
+                                <rect key="frame" x="20" y="58" width="560" height="447"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwA-7s-7O9">
+                                <rect key="frame" x="272" y="513" width="56" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Decloak"/>
+                                <connections>
+                                    <action selector="decloak:" destination="b7k-w8-Ine" eventType="touchUpInside" id="RjH-qZ-dUS"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="l4A-6s-rpg" secondAttribute="leading" id="5GA-pr-6lb"/>
+                            <constraint firstItem="UwA-7s-7O9" firstAttribute="top" secondItem="l4A-6s-rpg" secondAttribute="bottom" constant="8" id="JR2-mH-7Gb"/>
+                            <constraint firstItem="l4A-6s-rpg" firstAttribute="top" secondItem="eu7-95-1PS" secondAttribute="bottom" constant="8" id="c50-Bc-6ji"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="l4A-6s-rpg" secondAttribute="trailing" id="fw6-yy-YRI"/>
+                            <constraint firstItem="eu7-95-1PS" firstAttribute="centerX" secondItem="ePu-hV-xdl" secondAttribute="centerX" id="l2S-yM-k3V"/>
+                            <constraint firstItem="eu7-95-1PS" firstAttribute="top" secondItem="jVm-nv-7yL" secondAttribute="bottom" id="nac-hf-QKc"/>
+                            <constraint firstItem="UwA-7s-7O9" firstAttribute="centerX" secondItem="ePu-hV-xdl" secondAttribute="centerX" id="qCT-be-7ay"/>
+                            <constraint firstItem="qEx-fG-Yfx" firstAttribute="top" secondItem="UwA-7s-7O9" secondAttribute="bottom" constant="8" id="r0j-Sp-x29"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Decloak" id="ACj-Jw-quj"/>
+                    <connections>
+                        <outlet property="decloakButton" destination="UwA-7s-7O9" id="Yvc-fm-NE3"/>
+                        <outlet property="imageView" destination="l4A-6s-rpg" id="z7z-oK-oia"/>
+                        <outlet property="uploadButton" destination="eu7-95-1PS" id="ZWn-ba-seW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q5S-TG-dr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="254" y="1072"/>
+            <point key="canvasLocation" x="254" y="1077"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ccm-Gh-mqw">

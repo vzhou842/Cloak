@@ -7,8 +7,17 @@
 //
 
 #import "DecloakVC.h"
+#import "CloakingManager.h"
 
-@interface DecloakVC ()
+@interface DecloakVC () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIButton *uploadButton;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *decloakButton;
+- (IBAction)upload:(id)sender;
+- (IBAction)decloak:(id)sender;
+
+@property (nonatomic, strong) UIImagePickerController *imagePicker;
 
 @end
 
@@ -24,14 +33,45 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Accessors
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIImagePickerController *)imagePicker {
+    if (!_imagePicker) {
+        _imagePicker = [[UIImagePickerController alloc] init];
+        _imagePicker.delegate = self;
+        _imagePicker.allowsEditing = YES;
+        _imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    return _imagePicker;
 }
-*/
+
+#pragma mark - UINavigationControllerDelegate
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    self.imageView.image = info[UIImagePickerControllerEditedImage];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Actions
+
+- (IBAction)upload:(id)sender {
+    [self presentViewController:self.imagePicker animated:YES completion:nil];    
+}
+
+- (IBAction)decloak:(id)sender {
+    //ensure they've selected an image
+    if (!self.imageView.image) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please select an image first." preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    }
+    
+    [[CloakingManager sharedManager] decloakTextFromImage:self.imageView.image completion:^(NSString *text) {
+        NSLog(@"decloaked text: %@", text);
+    }];
+}
 
 @end

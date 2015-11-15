@@ -32,11 +32,14 @@ static int bitsForLength = 16;
 }
 
 - (void)cloakText:(NSString *)text inImage:(UIImage *)image completion:(nullable void (^)(UIImage *cloakedImage))completion {
+    
+    //NSLog(@"%@", [self binaryStringForASCII:@"a"]);
+    
     NSData *data = [text dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:NO];
     NSString *ascii = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-    NSLog(@"ascii: %@", ascii);
+    //NSLog(@"ascii: %@", ascii);
     NSString *binary = [self binaryStringForASCII:ascii];
-    NSLog(@"binary: %@", binary);
+    //NSLog(@"binary: %@", binary);
     
     // store length of binary at beginning
     binary = [NSString stringWithFormat:@"%@%@", [self binaryStringForNSUInteger:binary.length], binary];
@@ -56,9 +59,21 @@ static int bitsForLength = 16;
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);
     
     // Cloak binary into pixels
-    for (int i = 0; i < MIN(width*height, binary.length); i++)
+    int i = -1;
+    int currentIndex = 0;
+    while (currentIndex < binary.length)
     {
-        rawData[i] = [self cloakedByteFromByte:rawData[i] withDigit:([binary characterAtIndex:i] == '1')];
+        i++;
+        if (i % 4 == 3) {
+            rawData[i] = 255;
+            continue; //alpha channel
+        }
+        ////NSLog(@"old raw data[%d]: %d", i, (int)rawData[i]);
+        rawData[i] = [self cloakedByteFromByte:rawData[i] withDigit:([binary characterAtIndex:currentIndex] == '1')];
+        //NSLog(@"new raw data[%d]: %d", i, (int)rawData[i]);
+        ////NSLog(@"trying to store digit: %d", ([binary characterAtIndex:i] == '1'));
+        //rawData[i] = (i % 4 == 3) ? 255 : 0;
+        currentIndex++;
     }
     
     //make it back into a UIImage
@@ -90,16 +105,24 @@ static int bitsForLength = 16;
     
     // Get length of binary text
     NSMutableString *lengthString = [NSMutableString new];
-    for (int i = 0; i < bitsForLength; i++) {
+    int i = -1;
+    while (lengthString.length < bitsForLength) {
+        i++;
+        if (i % 4 == 3) continue; //alpha channel
+        //NSLog(@"rawData[%d]: %d", i, (int)rawData[i]);
         [lengthString appendString:[self lastBitFromByte:rawData[i]] ? @"1" : @"0"];
     }
     int length = [self intForBinaryString:lengthString];
+    //NSLog(@"length of cloaked message binary: %d", length);
     
     // Reconstruct hidden data
     NSMutableString *dataString = [NSMutableString new];
-    for (int i = bitsForLength; i < bitsForLength + length; i++) {
+    while (dataString.length < length) {
+        i++;
+        if (i % 4 == 3) continue; //alpha channel
         [dataString appendString:[self lastBitFromByte:rawData[i]] ? @"1" : @"0"];
     }
+    //NSLog(@"data string: %@", dataString);
     NSString *ascii = [self asciiForBinaryString:dataString];
     
     if (completion) {
@@ -113,9 +136,9 @@ static int bitsForLength = 16;
 
 - (unsigned char)cloakedByteFromByte:(unsigned char)original withDigit:(bool)d {
     if (original % 2 == 0 && d) {
-        original++;
+        return original+1;
     } else if (original % 2 == 1 && !d) {
-        original--;
+        return original-1;
     }
     return original;
 }
@@ -127,11 +150,11 @@ static int bitsForLength = 16;
 - (NSString *)binaryStringForASCII:(NSString *)ascii {
     NSMutableString *returnString = [NSMutableString new];
     for (int i = 0; i < [ascii length]; i++) {
-        unsigned char character = [ascii characterAtIndex:i];
+        int character = (int)[ascii characterAtIndex:i];
         // for each bit in a byte extract the bit
         for (int j = 0; j < 8; j++) {
             int bit = (character >> j) & 1;
-            [returnString appendString:[NSString stringWithFormat:@"%d", bit]];
+            [returnString insertString:[NSString stringWithFormat:@"%d", bit] atIndex:0];
         }           
     }
     return [returnString copy];
@@ -158,12 +181,13 @@ static int bitsForLength = 16;
 - (NSString *)asciiForBinaryString:(NSString *)string {
     NSMutableString *ret = [NSMutableString new];
     for (int i = 0; i < string.length; i += bitsPerComponent) {
-        unsigned char thisChar = 0;
+        int thisChar = 0;
         for (int j = 0; j < bitsPerComponent; j++) {
+            thisChar <<= 1;
             unsigned char c = [string characterAtIndex:i+j];
-            thisChar = (thisChar + (int)(c == '1')) << 1;
+            thisChar = (thisChar + (int)(c == '1'));
         }
-        [ret appendFormat:@"%c", thisChar];
+        [ret insertString:[NSString stringWithFormat:@"%c", (char)thisChar] atIndex:0];
     }
     return ret;
 }
