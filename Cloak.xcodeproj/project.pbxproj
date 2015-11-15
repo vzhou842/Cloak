@@ -16,6 +16,7 @@
 		A5545DB51BF7CD8D005382CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5545DB31BF7CD8D005382CB /* LaunchScreen.storyboard */; };
 		A5545DBE1BF7D5A6005382CB /* CloakingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5545DBD1BF7D5A6005382CB /* CloakingManager.m */; };
 		A5545DC11BF80945005382CB /* DecloakVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A5545DC01BF80945005382CB /* DecloakVC.m */; };
+		A5545DC41BF85ACB005382CB /* DecloakedTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A5545DC31BF85ACB005382CB /* DecloakedTextVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		A5545DBD1BF7D5A6005382CB /* CloakingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloakingManager.m; sourceTree = "<group>"; };
 		A5545DBF1BF80945005382CB /* DecloakVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecloakVC.h; sourceTree = "<group>"; };
 		A5545DC01BF80945005382CB /* DecloakVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecloakVC.m; sourceTree = "<group>"; };
+		A5545DC21BF85ACB005382CB /* DecloakedTextVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecloakedTextVC.h; sourceTree = "<group>"; };
+		A5545DC31BF85ACB005382CB /* DecloakedTextVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecloakedTextVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				A5545DBD1BF7D5A6005382CB /* CloakingManager.m */,
 				2CA346821BF7F0DF00BC590E /* DownloadVC.h */,
 				2CA346831BF7F0DF00BC590E /* DownloadVC.m */,
+				A5545DC21BF85ACB005382CB /* DecloakedTextVC.h */,
+				A5545DC31BF85ACB005382CB /* DecloakedTextVC.m */,
 				A5545DAE1BF7CD8D005382CB /* Main.storyboard */,
 				A5545DB11BF7CD8D005382CB /* Assets.xcassets */,
 				A5545DB31BF7CD8D005382CB /* LaunchScreen.storyboard */,
@@ -166,6 +171,7 @@
 			files = (
 				A5545DAD1BF7CD8D005382CB /* CloakVC.m in Sources */,
 				2CA346841BF7F0DF00BC590E /* DownloadVC.m in Sources */,
+				A5545DC41BF85ACB005382CB /* DecloakedTextVC.m in Sources */,
 				A5545DC11BF80945005382CB /* DecloakVC.m in Sources */,
 				A5545DAA1BF7CD8D005382CB /* AppDelegate.m in Sources */,
 				A5545DA71BF7CD8D005382CB /* main.m in Sources */,

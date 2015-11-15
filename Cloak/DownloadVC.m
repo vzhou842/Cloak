@@ -20,7 +20,6 @@
     [super viewDidLoad];
     
     self.imageView.image = self.downloadImage;
-    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

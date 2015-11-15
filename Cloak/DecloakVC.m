@@ -8,6 +8,7 @@
 
 #import "DecloakVC.h"
 #import "CloakingManager.h"
+#import "DecloakedTextVC.h"
 
 @interface DecloakVC () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -18,6 +19,7 @@
 - (IBAction)decloak:(id)sender;
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
+@property (nonatomic, copy) NSString *decloakedText;
 
 @end
 
@@ -71,7 +73,16 @@
     
     [[CloakingManager sharedManager] decloakTextFromImage:self.imageView.image completion:^(NSString *text) {
         NSLog(@"decloaked text: %@", text);
+        self.decloakedText = text;
+        [self performSegueWithIdentifier:@"showText" sender:self];
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showText"]) {
+        DecloakedTextVC *vc = (DecloakedTextVC *)[segue destinationViewController];
+        vc.decloakedText = self.decloakedText;
+    }
 }
 
 @end
