@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
 @property (strong, nonatomic) IBOutlet UILabel *uploadText;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIView *divider;
 - (IBAction)upload:(id)sender;
 - (IBAction)cloak:(id)sender;
 - (IBAction)continuePressed:(id)sender;
@@ -76,7 +77,11 @@
     return _swipeRecognizer;
 }
 
-#pragma mark - UINavigationControllerDelegate
+#pragma mark - UITextViewDelegate
+
+- (void)textViewDidChange:(UITextView *)textView {
+    self.divider.alpha = (textView.text.length > 0) ? 1 : 0;
+}
 
 #pragma mark - UIImagePickerControllerDelegate
 
@@ -129,6 +134,7 @@
     [UIView animateWithDuration:0.5 animations:^{
         self.continueButton.alpha = 0;
         self.textView.alpha = 0;
+        self.divider.alpha = 0;
     }];
     
     //animate in
@@ -166,6 +172,7 @@
         [UIView animateWithDuration:0.5 animations:^{
             self.continueButton.alpha = 1;
             self.textView.alpha = 1;
+            self.divider.alpha = 1;
         }];
     } else if (self.cloakButton.alpha == 1) {
         //currently in cloak
@@ -202,6 +209,7 @@
     [self back:self];
     [self back:self];
     self.textView.text = @"";
+    self.divider.alpha = 0;
 }
 
 @end
