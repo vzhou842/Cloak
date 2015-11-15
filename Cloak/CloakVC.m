@@ -29,6 +29,7 @@
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (nonatomic, strong) UIImage *cloakedImage;
+@property (nonatomic, strong) UISwipeGestureRecognizer *swipeRecognizer;
 
 @end
 
@@ -47,6 +48,7 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    [self.view addGestureRecognizer:self.swipeRecognizer];
     
     self.textView.placeholder = @"Type or Paste any sensitive text that you want hidden here.";
     self.textView.placeholderColor = [UIColor lightGrayColor];
@@ -64,6 +66,14 @@
         _imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     return _imagePicker;
+}
+
+- (UISwipeGestureRecognizer *)swipeRecognizer {
+    if (!_swipeRecognizer) {
+        _swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+        _swipeRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+    }
+    return _swipeRecognizer;
 }
 
 #pragma mark - UINavigationControllerDelegate
@@ -192,18 +202,6 @@
     [self back:self];
     [self back:self];
     self.textView.text = @"";
-//    self.imageView.image = nil;
-//    self.imageView.alpha = 0;
-//    self.textView.alpha = 1;
-//    self.continueButton.enabled = YES;
-//    self.continueButton.alpha = 1;
-//    self.uploadButton.alpha = 0;
-//    self.uploadButton.enabled = NO;
-//    self.cloakButton.alpha = 0;
-//    self.cloakButton.enabled = NO;
-//    self.uploadText.alpha = 0;
-//    self.backButton.enabled = NO;
-//    self.backButton.alpha = 0;
 }
 
 @end
