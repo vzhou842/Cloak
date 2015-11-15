@@ -36,12 +36,6 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-
-    
-    [[_uploadButton layer] setBorderWidth:1];
-    [[_uploadButton layer] setCornerRadius:5];
-    [[_uploadButton layer] setBorderColor:[UIColor whiteColor].CGColor];
-    
 }
 
 #pragma mark - Accessors

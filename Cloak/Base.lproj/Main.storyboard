@@ -136,6 +136,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="s6H-aa-sq4"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Decloak">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -162,6 +163,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="bFK-rM-uhY"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Upload Image">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
