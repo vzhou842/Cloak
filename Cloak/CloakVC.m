@@ -1,16 +1,16 @@
 //
-//  MainVC.m
+//  CloakVC.m
 //  Cloak
 //
 //  Created by Victor Zhou on 11/14/15.
 //  Copyright © 2015 Victor Zhou. All rights reserved.
 //
 
-#import "MainVC.h"
+#import "CloakVC.h"
 #import "CloakingManager.h"
 #import "DownloadVC.h"
 
-@interface MainVC () <UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface CloakVC () <UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 // Interface Builder
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation MainVC
+@implementation CloakVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

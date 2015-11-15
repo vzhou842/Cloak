@@ -10,7 +10,7 @@
 		2CA346841BF7F0DF00BC590E /* DownloadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA346831BF7F0DF00BC590E /* DownloadVC.m */; };
 		A5545DA71BF7CD8D005382CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5545DA61BF7CD8D005382CB /* main.m */; };
 		A5545DAA1BF7CD8D005382CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5545DA91BF7CD8D005382CB /* AppDelegate.m */; };
-		A5545DAD1BF7CD8D005382CB /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A5545DAC1BF7CD8D005382CB /* MainVC.m */; };
+		A5545DAD1BF7CD8D005382CB /* CloakVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A5545DAC1BF7CD8D005382CB /* CloakVC.m */; };
 		A5545DB01BF7CD8D005382CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5545DAE1BF7CD8D005382CB /* Main.storyboard */; };
 		A5545DB21BF7CD8D005382CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5545DB11BF7CD8D005382CB /* Assets.xcassets */; };
 		A5545DB51BF7CD8D005382CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5545DB31BF7CD8D005382CB /* LaunchScreen.storyboard */; };
@@ -24,8 +24,8 @@
 		A5545DA61BF7CD8D005382CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5545DA81BF7CD8D005382CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A5545DA91BF7CD8D005382CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A5545DAB1BF7CD8D005382CB /* MainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
-		A5545DAC1BF7CD8D005382CB /* MainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+		A5545DAB1BF7CD8D005382CB /* CloakVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloakVC.h; sourceTree = "<group>"; };
+		A5545DAC1BF7CD8D005382CB /* CloakVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CloakVC.m; sourceTree = "<group>"; };
 		A5545DAF1BF7CD8D005382CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5545DB11BF7CD8D005382CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5545DB41BF7CD8D005382CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,8 +66,8 @@
 			children = (
 				A5545DA81BF7CD8D005382CB /* AppDelegate.h */,
 				A5545DA91BF7CD8D005382CB /* AppDelegate.m */,
-				A5545DAB1BF7CD8D005382CB /* MainVC.h */,
-				A5545DAC1BF7CD8D005382CB /* MainVC.m */,
+				A5545DAB1BF7CD8D005382CB /* CloakVC.h */,
+				A5545DAC1BF7CD8D005382CB /* CloakVC.m */,
 				A5545DBC1BF7D5A6005382CB /* CloakingManager.h */,
 				A5545DBD1BF7D5A6005382CB /* CloakingManager.m */,
 				2CA346821BF7F0DF00BC590E /* DownloadVC.h */,
@@ -159,7 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5545DAD1BF7CD8D005382CB /* MainVC.m in Sources */,
+				A5545DAD1BF7CD8D005382CB /* CloakVC.m in Sources */,
 				2CA346841BF7F0DF00BC590E /* DownloadVC.m in Sources */,
 				A5545DAA1BF7CD8D005382CB /* AppDelegate.m in Sources */,
 				A5545DA71BF7CD8D005382CB /* main.m in Sources */,

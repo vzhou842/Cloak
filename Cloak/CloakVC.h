@@ -1,5 +1,5 @@
 //
-//  MainVC.h
+//  CloakVC.h
 //  Cloak
 //
 //  Created by Victor Zhou on 11/14/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainVC : UIViewController
+@interface CloakVC : UIViewController
 
 
 @end
